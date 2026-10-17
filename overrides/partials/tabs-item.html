@@ -1,0 +1,41 @@
+{#-
+  上部タブにカーソルを合わせると、そのカテゴリのページ一覧がドロップダウンで出るようにした版。
+  元は mkdocs-material の partials/tabs-item.html。
+-#}
+{% macro first_url(item) -%}
+  {%- if item.children -%}
+    {{- first_url(item.children | first) -}}
+  {%- else -%}
+    {{- item.url | url -}}
+  {%- endif -%}
+{%- endmacro %}
+
+{% macro render(nav_item) %}
+  {% set class = "md-tabs__item" %}
+  {% if nav_item.active %}
+    {% set class = class ~ " md-tabs__item--active" %}
+  {% endif %}
+  {% if nav_item.children %}
+    {% set pages = nav_item.children | rejectattr("is_index") | list %}
+    <li class="{{ class }}{% if pages %} md-tabs__item--dropdown{% endif %}">
+      <a href="{{ first_url(nav_item) }}" class="md-tabs__link">
+        {{ nav_item.title }}
+      </a>
+      {% if pages %}
+        <ul class="md-tabs__dropdown">
+          {% for child in pages %}
+            <li class="md-tabs__dropdown-item{% if child.active %} md-tabs__dropdown-item--active{% endif %}">
+              <a href="{{ first_url(child) }}">{{ child.title }}</a>
+            </li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    </li>
+  {% else %}
+    <li class="{{ class }}">
+      <a href="{{ nav_item.url | url }}" class="md-tabs__link">
+        {{ nav_item.title }}
+      </a>
+    </li>
+  {% endif %}
+{% endmacro %}

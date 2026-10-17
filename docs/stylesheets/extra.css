@@ -1,0 +1,55 @@
+/* 上部タブのドロップダウン表示 */
+.md-tabs,
+.md-tabs__list {
+  overflow: visible;
+  contain: none;
+}
+
+.md-tabs__item--dropdown {
+  position: relative;
+}
+
+.md-tabs__item--dropdown > .md-tabs__link::after {
+  content: "▾";
+  margin-left: 0.25em;
+  font-size: 0.8em;
+  opacity: 0.8;
+}
+
+.md-tabs__dropdown {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 10;
+  min-width: 13rem;
+  margin: 0;
+  padding: 0.4rem 0;
+  list-style: none;
+  background-color: var(--md-default-bg-color);
+  border-radius: 0.3rem;
+  box-shadow: var(--md-shadow-z2);
+}
+
+.md-tabs__item--dropdown:hover > .md-tabs__dropdown,
+.md-tabs__item--dropdown:focus-within > .md-tabs__dropdown {
+  display: block;
+}
+
+.md-tabs__dropdown-item a {
+  display: block;
+  padding: 0.45rem 1rem;
+  color: var(--md-default-fg-color);
+  font-size: 0.7rem;
+  white-space: nowrap;
+}
+
+.md-tabs__dropdown-item a:hover {
+  color: var(--md-accent-fg-color);
+  background-color: var(--md-default-fg-color--lightest);
+}
+
+.md-tabs__dropdown-item--active a {
+  color: var(--md-primary-fg-color);
+  font-weight: 700;
+}

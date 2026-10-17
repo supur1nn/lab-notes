@@ -1,5 +1,5 @@
 site_name: SP Lab Notes
-site_description: CMLで検証したサービスプロバイダ技術（MPLS / BGP / Segment Routing / IOS XR）の学習ノート
+site_description: ネットワークエンジニアとして学んだことを CML での検証とあわせて残す学習ノート
 # GitHub Pages の URL に合わせて書き換えてください
 site_url: https://supur1nn.github.io/lab-notes/
 repo_url: https://github.com/supur1nn/lab-notes
@@ -7,9 +7,11 @@ repo_name: lab-notes
 
 theme:
   name: material
+  custom_dir: overrides
   language: ja
   features:
     - navigation.tabs
+    - navigation.tabs.sticky
     - navigation.sections
     - navigation.top
     - navigation.indexes
@@ -45,6 +47,9 @@ markdown_extensions:
   - toc:
       permalink: true
   - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
   - pymdownx.highlight:
       anchor_linenums: true
   - pymdownx.inlinehilite
@@ -57,27 +62,35 @@ markdown_extensions:
           class: mermaid
           format: !!python/name:pymdownx.superfences.fence_code_format
 
+extra_css:
+  - stylesheets/extra.css
+
 nav:
   - ホーム: index.md
   - 勉強記録:
       - study-log/index.md
       - 2026-10-17 CML導入とshow ip route: study-log/2026-10-17.md
+  - プロトコル:
+      - protocols/index.md
+      - OSPF:
+          - protocols/ospf/index.md
+      - BGP:
+          - protocols/bgp/index.md
+      - MPLS:
+          - protocols/mpls/index.md
+          - LDPの基本: protocols/mpls/ldp-basic.md
+      - Segment Routing:
+          - protocols/segment-routing/index.md
+      - IOS XR:
+          - protocols/ios-xr/index.md
   - 検証:
       - 検証の進め方: verification/workflow.md
       - 検証一覧: verification/index.md
       - OSPFで広報される経路: verification/ospf-advertised-routes.md
-  - MPLS:
-      - mpls/index.md
-      - LDPの基本: mpls/ldp-basic.md
-  - BGP:
-      - bgp/index.md
-  - Segment Routing:
-      - segment-routing/index.md
-  - IOS XR:
-      - ios-xr/index.md
-  - ラボ環境: lab-environment.md
   - 参考記事:
       - articles/index.md
       - CMLの導入と使い方: articles/cml-setup.md
       - 構築・トラシュー自動化: articles/automation.md
-  - このサイトについて: about/how-this-site-works.md
+  - このサイトについて:
+      - サイトの作り方: about/how-this-site-works.md
+      - ラボ環境: about/lab-environment.md

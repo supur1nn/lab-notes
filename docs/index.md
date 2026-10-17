@@ -1,23 +1,38 @@
 # SP Lab Notes
 
-Cisco Modeling Labs (CML) で検証したサービスプロバイダ技術の学習ノートです。
+ネットワークエンジニアとして学んだことを、Cisco Modeling Labs (CML) での検証とあわせて残している学習ノートです。
 トポロジ・コンフィグ・検証結果・ハマったポイントをセットで残しています。
 
 ## カテゴリ
 
 <div class="grid cards" markdown>
 
-- :material-transit-connection-variant: **[MPLS](mpls/index.md)**
-  LDP / RSVP-TE / L3VPN
-- :material-routes: **[BGP](bgp/index.md)**
-  iBGP / RR / ポリシー制御
-- :material-source-branch: **[Segment Routing](segment-routing/index.md)**
-  SR-MPLS / TI-LFA / SR-TE
-- :material-router-network: **[IOS XR](ios-xr/index.md)**
-  IOS XE との違い・運用コマンド
+- :material-notebook-edit-outline:{ .lg .middle } **[勉強記録](study-log/index.md)**
+
+    ---
+
+    日付ごとにやったこと・学んだこと
+
+- :material-routes:{ .lg .middle } **[プロトコル](protocols/index.md)**
+
+    ---
+
+    OSPF / BGP / MPLS / Segment Routing
+
+- :material-flask-outline:{ .lg .middle } **[検証](verification/workflow.md)**
+
+    ---
+
+    仮説 → 設定 → 確認 → 結果 → 考察
+
+- :material-bookmark-multiple-outline:{ .lg .middle } **[参考記事](articles/index.md)**
+
+    ---
+
+    参考にした外部の記事・資料
 
 </div>
 
 ## 更新履歴
 
-- 2026-10-17: サイト開設
+- 2026-10-17: サイト開設、勉強記録・検証・参考記事を追加
