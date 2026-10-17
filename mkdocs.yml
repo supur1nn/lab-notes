@@ -62,6 +62,11 @@ nav:
   - 勉強記録:
       - study-log/index.md
       - 2026-10-17 CML導入とshow ip route: study-log/2026-10-17.md
+  - 検証:
+      - verification/index.md
+      - OSPFで広報される経路: verification/ospf-advertised-routes.md
+  - TIPS:
+      - 検証の進め方: tips/verification-workflow.md
   - MPLS:
       - mpls/index.md
       - LDPの基本: mpls/ldp-basic.md
