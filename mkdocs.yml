@@ -59,6 +59,9 @@ markdown_extensions:
 
 nav:
   - ホーム: index.md
+  - 勉強記録:
+      - study-log/index.md
+      - 2026-10-17 CML導入とshow ip route: study-log/2026-10-17.md
   - MPLS:
       - mpls/index.md
       - LDPの基本: mpls/ldp-basic.md
