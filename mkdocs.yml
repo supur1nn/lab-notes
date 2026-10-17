@@ -1,8 +1,8 @@
 site_name: SP Lab Notes
 site_description: CMLで検証したサービスプロバイダ技術（MPLS / BGP / Segment Routing / IOS XR）の学習ノート
 # GitHub Pages の URL に合わせて書き換えてください
-site_url: https://YOUR-GITHUB-ID.github.io/lab-notes/
-repo_url: https://github.com/YOUR-GITHUB-ID/lab-notes
+site_url: https://supur1nn.github.io/lab-notes/
+repo_url: https://github.com/supur1nnD/lab-notes
 repo_name: lab-notes
 
 theme:
