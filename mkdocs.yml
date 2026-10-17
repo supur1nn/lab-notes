@@ -62,6 +62,9 @@ markdown_extensions:
           class: mermaid
           format: !!python/name:pymdownx.superfences.fence_code_format
 
+hooks:
+  - hooks/page_dates.py
+
 extra_css:
   - stylesheets/extra.css
 

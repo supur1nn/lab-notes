@@ -53,3 +53,10 @@
   color: var(--md-primary-fg-color);
   font-weight: 700;
 }
+
+/* 各ページの作成日・更新日 */
+.md-typeset .page-dates {
+  margin-top: -0.8em;
+  color: var(--md-default-fg-color--light);
+  font-size: 0.7rem;
+}
