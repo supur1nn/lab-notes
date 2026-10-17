@@ -1,4 +1,4 @@
-# SP Lab Notes
+# supur1n Network Lab Notes
 
 CML で検証した内容をまとめる MkDocs (Material) サイトです。
 

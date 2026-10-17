@@ -1,4 +1,4 @@
-# SP Lab Notes
+# supur1n Network Lab Notes
 
 ネットワークエンジニアとして学んだことを、Cisco Modeling Labs (CML) での検証とあわせて残している学習ノートです。
 トポロジ・コンフィグ・検証結果・ハマったポイントをセットで残しています。
