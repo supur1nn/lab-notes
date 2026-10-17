@@ -1,0 +1,71 @@
+site_name: SP Lab Notes
+site_description: CMLで検証したサービスプロバイダ技術（MPLS / BGP / Segment Routing / IOS XR）の学習ノート
+# GitHub Pages の URL に合わせて書き換えてください
+site_url: https://YOUR-GITHUB-ID.github.io/lab-notes/
+repo_url: https://github.com/YOUR-GITHUB-ID/lab-notes
+repo_name: lab-notes
+
+theme:
+  name: material
+  language: ja
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - navigation.indexes
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - content.code.annotate
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: teal
+      toggle:
+        icon: material/weather-night
+        name: ダークモードに切り替え
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: teal
+      toggle:
+        icon: material/weather-sunny
+        name: ライトモードに切り替え
+
+plugins:
+  - search:
+      lang: ja
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+
+nav:
+  - ホーム: index.md
+  - MPLS:
+      - mpls/index.md
+      - LDPの基本: mpls/ldp-basic.md
+  - BGP:
+      - bgp/index.md
+  - Segment Routing:
+      - segment-routing/index.md
+  - IOS XR:
+      - ios-xr/index.md
+  - ラボ環境: lab-environment.md

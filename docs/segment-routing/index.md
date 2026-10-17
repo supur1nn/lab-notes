@@ -1,0 +1,7 @@
+# Segment Routing
+
+Segment Routing 関連の検証記事の一覧です。
+
+| 記事 | 内容 |
+|------|------|
+| （準備中） | |
