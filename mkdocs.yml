@@ -69,4 +69,8 @@ nav:
   - IOS XR:
       - ios-xr/index.md
   - ラボ環境: lab-environment.md
+  - 参考記事:
+      - articles/index.md
+      - CMLの導入: articles/cml-setup.md
+      - 構築・トラシュー自動化: articles/automation.md
   - このサイトについて: about/how-this-site-works.md
