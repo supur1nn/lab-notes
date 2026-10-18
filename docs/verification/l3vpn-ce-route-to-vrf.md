@@ -33,7 +33,7 @@ graph LR
 
 ## 参考書での手順（CE1 → PE1 → P → PE2 → CE2）
 
-参考書（図7-8「MPLS VPN 網における経路の伝播」）に載っていた、CE1 の経路が CE2 に届くまでの手順を、自分の言葉でまとめたもの。
+参考書『[MPLS Fundamentals](../articles/books.md)』第7章（図7-8「MPLS VPN 網における経路の伝播」）に載っていた、CE1 の経路が CE2 に届くまでの手順を、自分の言葉でまとめたもの。
 
 ```mermaid
 graph LR

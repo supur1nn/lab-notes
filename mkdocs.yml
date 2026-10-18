@@ -72,6 +72,7 @@ nav:
   - ホーム: index.md
   - 勉強記録:
       - study-log/index.md
+      - 2026-10-18 L3VPNの経路の流れとBGP: study-log/2026-10-18.md
       - 2026-10-17 CML導入とshow ip route: study-log/2026-10-17.md
   - プロトコル:
       - protocols/index.md
@@ -93,6 +94,7 @@ nav:
       - CEの経路がVRFに入るまで: verification/l3vpn-ce-route-to-vrf.md
   - 参考記事:
       - articles/index.md
+      - 参考書一覧: articles/books.md
       - CMLの導入と使い方: articles/cml-setup.md
       - 構築・トラシュー自動化: articles/automation.md
   - このサイトについて:
