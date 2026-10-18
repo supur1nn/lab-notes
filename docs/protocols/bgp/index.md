@@ -61,6 +61,38 @@ show ip bgp neighbors <ネイバーのアドレス>
 
 参考：[BGP ベストパスアルゴリズムの選択（シスコ）](https://www.cisco.com/c/ja_jp/support/docs/ip/border-gateway-protocol-bgp/13753-25.html)
 
+## BGP マルチパス（maximum-paths）
+
+BGP は通常、ベストパスを1つだけ選ぶ。`maximum-paths` を設定すると、条件を満たす複数の経路をルーティングテーブルに入れて、負荷分散（マルチパス）できる。
+
+```
+router bgp 65000
+ address-family ipv4
+  maximum-paths 2          ← eBGP で学んだ経路のマルチパス
+  maximum-paths ibgp 2     ← iBGP で学んだ経路のマルチパス
+```
+
+### マルチパスになる条件
+
+ベストパス選択アルゴリズムの、**ネクストホップまでの IGP コスト（順番 8）まで**の属性が、ベストパスとすべて同じであること。
+
+| 一致が必要なもの | 補足 |
+| --- | --- |
+| Weight | |
+| Local Preference | |
+| AS_PATH | 長さが同じであること。初期設定では、隣接 AS も同じである必要がある |
+| Origin | |
+| MED | |
+| eBGP か iBGP か | eBGP 同士、または iBGP 同士 |
+| ネクストホップまでの IGP コスト | |
+
+!!! note "自分のメモ"
+    - マルチパスにしても、**ベストパスは1つのまま**。ネイバーに広報するのもベストパス1つだけで、複数の経路を自分のルーティングテーブルに入れるだけ
+    - eBGP と iBGP で設定が分かれている（`maximum-paths` と `maximum-paths ibgp`）
+    - 違う AS から来た経路同士でマルチパスにしたいときは、`bgp bestpath as-path multipath-relax` で「AS_PATH の長さが同じなら OK」にゆるめられる
+
+参考：[BGP Multipath（シスコ）](https://docs.manage.security.cisco.com/cdfmc/c_bgp_multipath.html)
+
 ## 関連ページ
 
 | ページ | 内容 |
