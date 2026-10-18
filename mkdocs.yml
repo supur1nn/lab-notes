@@ -90,6 +90,7 @@ nav:
       - 検証の進め方: verification/workflow.md
       - 検証一覧: verification/index.md
       - OSPFで広報される経路: verification/ospf-advertised-routes.md
+      - CEの経路がVRFに入るまで: verification/l3vpn-ce-route-to-vrf.md
   - 参考記事:
       - articles/index.md
       - CMLの導入と使い方: articles/cml-setup.md
