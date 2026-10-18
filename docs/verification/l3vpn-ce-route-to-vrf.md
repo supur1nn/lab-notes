@@ -31,6 +31,35 @@ graph LR
 | PE1 - P - PE2 | IGP（OSPF など）、LDP |
 | PE1 - PE2 | iBGP（VPNv4） |
 
+## 参考書での手順（CE1 → PE1 → P → PE2 → CE2）
+
+参考書（図7-8「MPLS VPN 網における経路の伝播」）に載っていた、CE1 の経路が CE2 に届くまでの手順を、自分の言葉でまとめたもの。
+
+```mermaid
+graph LR
+  CE1["CE1"] -- "① IGP / eBGP で<br/>IPv4 経路を広告" --> PE1["PE1<br/>② VRF の経路表に入れる<br/>③ MP-BGP に再配布<br/>RD を付けて VPNv4 にし、RT を付ける"]
+  PE1 -- "④ iBGP で VPNv4 経路を広告<br/>（VPN ラベル・RT 付き）" --> P["P<br/>（BGP には参加しない）"]
+  P --> PE2["PE2<br/>⑤ RT で取り込む VRF を決め、RD を外す<br/>⑥ IPv4 経路として VRF の経路表に入れる"]
+  PE2 -- "⑦ IGP / eBGP で<br/>IPv4 経路を広告" --> CE2["CE2"]
+```
+
+| 手順 | どこで | 何をするか |
+| --- | --- | --- |
+| ① | CE1 → PE1 | CE1 が IGP または eBGP で、IPv4 の経路を PE1 に広告する |
+| ② | PE1 | 受け取った IPv4 の経路を、VRF の経路表に入れる |
+| ③ | PE1 | VRF の IPv4 経路を MP-BGP に再配布する。このとき RD を付けて VPNv4 の経路にし、RT を付ける |
+| ④ | PE1 → PE2 | iBGP で、VPNv4 の経路を MPLS ラベル（VPN ラベル）と RT 付きで PE2 に広告する |
+| ⑤ | PE2 | RT を見て取り込む VRF を決め、RD を外す |
+| ⑥ | PE2 | IPv4 の経路として、その VRF の経路表に入れる |
+| ⑦ | PE2 → CE2 | IGP または eBGP で、IPv4 の経路を CE2 に広告する |
+
+- PE と PE の間の iBGP のパケットは P を通るが、P 自身は BGP に参加しない（P が動かすのは IGP と LDP だけ）
+- PE-CE 間が eBGP なら、③ の再配布は不要（BGP のまま VPNv4 にできる）。IGP やスタティックのときは、BGP への再配布の設定が必要
+
+!!! note "自分のメモ"
+    - ② の「VRF の経路表に入れる」は、インターフェースに VRF の設定が入っているから、そこから来た経路は VRF に載る、と考えている。PE がどうやって「この VRF の CE から広報された経路」だと判断しているのかを確かめたい
+    - RT の import はいつ使うのか。他の PE から届いた経路を受け取るとき（⑤）で、export は自分の経路を送り出すとき（③）なのかを確かめたい
+
 ## 小さな問いに分ける
 
 1 回の検証で答えが出るように分けておく。
