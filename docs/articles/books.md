@@ -10,17 +10,17 @@
 
 ## これから読む本
 
-[ロードマップ](../plan/index.md)の順番に合わせて、上から読む予定。
+[ロードマップ](../plan/index.md)の順番に合わせて、上から読む予定。書名のリンクから、出版社やストアなどのページを開ける。
 
 | 順番 | 書名 | 分野 | 読む理由 |
 | --- | --- | --- | --- |
-| 1 | CCNP and CCIE Service Provider Core SPCOR 350-501 Official Cert Guide | SP 全般 | SPCOR の公式テキスト。試験範囲の全体をつかむ |
-| 2 | Segment Routing Part I | SR-MPLS、TI-LFA | SR の基本。SR を作った人たちが書いた本 |
-| 3 | Segment Routing Part II | SR-TE | SR-TE を深める |
-| 4 | MPLS in the SDN Era | L3VPN、L2VPN、EVPN、SR | XR の設定例つきでサービスを深める |
-| 5 | Segment Routing Part III | SRv6 | CCIE SP v5.1 で追加された SRv6 |
-| 6 | BGP Design and Implementation | BGP | BGP の設計とポリシー |
-| 7 | Definitive MPLS Network Designs | 設計 | Design モジュール対策 |
+| 1 | [CCNP and CCIE Service Provider Core SPCOR 350-501 Official Cert Guide](https://www.informit.com/store/ccnp-spcor-350-501-official-cert-guide-9780135324806) | SP 全般 | SPCOR の公式テキスト。試験範囲の全体をつかむ |
+| 2 | [Segment Routing Part I](https://www.goodreads.com/book/show/34831297) | SR-MPLS、TI-LFA | SR の基本。SR を作った人たちが書いた本 |
+| 3 | [Segment Routing Part II](https://www.goodreads.com/book/show/49695533-segment-routing-part-ii) | SR-TE | SR-TE を深める |
+| 4 | [MPLS in the SDN Era](https://www.amazon.co.jp/dp/149190545X) | L3VPN、L2VPN、EVPN、SR | XR の設定例つきでサービスを深める |
+| 5 | [Segment Routing Part III](https://www.goodreads.com/book/show/214377681-segment-routing-part-iii) | SRv6 | CCIE SP v5.1 で追加された SRv6 |
+| 6 | [BGP Design and Implementation](https://www.oreilly.com/library/view/bgp-design-and/9781587058646/) | BGP | BGP の設計とポリシー |
+| 7 | [Definitive MPLS Network Designs](https://www.ciscopress.com/title/1587051869) | 設計 | Design モジュール対策 |
 
 ## ラボの教材
 
