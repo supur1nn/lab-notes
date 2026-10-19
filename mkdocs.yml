@@ -53,6 +53,8 @@ markdown_extensions:
   - pymdownx.highlight:
       anchor_linenums: true
   - pymdownx.inlinehilite
+  - pymdownx.tasklist:
+      custom_checkbox: true
   - pymdownx.snippets
   - pymdownx.tabbed:
       alternate_style: true
@@ -70,6 +72,8 @@ extra_css:
 
 nav:
   - ホーム: index.md
+  - 学習計画:
+      - CCIE SP合格までのロードマップ: plan/index.md
   - 勉強記録:
       - study-log/index.md
       - 2026-10-18 L3VPNの経路の流れとBGP: study-log/2026-10-18.md
@@ -95,6 +99,7 @@ nav:
   - 参考記事:
       - articles/index.md
       - 参考書一覧: articles/books.md
+      - CCIE合格者が使った教材: articles/ccie-study-resources.md
       - CMLの導入と使い方: articles/cml-setup.md
       - 構築・トラシュー自動化: articles/automation.md
   - このサイトについて:
