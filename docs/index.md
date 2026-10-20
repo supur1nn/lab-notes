@@ -23,7 +23,7 @@
 
     ---
 
-    OSPF / BGP / MPLS / Segment Routing
+    OSPF / BGP / MPLS / VRF / Segment Routing
 
 - :material-flask-outline:{ .lg .middle } **[検証](verification/workflow.md)**
 
@@ -41,6 +41,7 @@
 
 ## 更新履歴
 
+- 2026-10-21: プロトコルに VRF のページを追加（IOS XR の import の RT と route-policy は AND で効く）
 - 2026-10-20: CML の参考記事に CML-Personal の購入・構築、ベアメタルへのインストール、CML の基本操作の記事を追加
 - 2026-10-19: CCIE SP 合格までのロードマップ、CCIE 合格者が使った教材を追加。参考書一覧に「これから読む本」を追加
 - 2026-10-18: 勉強記録（L3VPN・BGP）、L3VPN の検証メモ、参考書一覧を追加

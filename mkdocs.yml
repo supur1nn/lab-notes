@@ -87,6 +87,8 @@ nav:
       - MPLS:
           - protocols/mpls/index.md
           - LDPの基本: protocols/mpls/ldp-basic.md
+      - VRF:
+          - protocols/vrf/index.md
       - Segment Routing:
           - protocols/segment-routing/index.md
       - IOS XR:
