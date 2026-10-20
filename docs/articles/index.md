@@ -5,5 +5,5 @@
 | テーマ | 内容 |
 |------|------|
 | [CCIE 合格者が使った教材](ccie-study-resources.md) | CCIE SP・EI の受験記から、使われていた本と教材、勉強のコツをまとめたもの |
-| [CMLの導入と使い方](cml-setup.md) | CML Free・CML-Personal のインストール手順、構築後の基本操作、シスコ公式のCML解説資料 |
+| [CMLの導入と使い方](cml-setup.md) | CML Free・CML-Personal・ベアメタルのインストール手順、構築後の基本操作、シスコ公式のCML解説資料 |
 | [構築自動化とトラブルシューティング自動化](automation.md) | AIやツールを使ったラボ構築・障害試験の自動化に向けた記事 |

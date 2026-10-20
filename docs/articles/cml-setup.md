@@ -39,6 +39,29 @@ ESXi への構築なので、そのまま使えるところと、ベアメタル
     - sysadmin のパスワードは 8 文字以上で、文字の種類が少ないと警告が出る
     - トークンは Learning Network Store の My Orders → 対象の注文 → View license(s) から取り出す
 
+## CML をベアメタルにインストール
+
+- リンク: [Intel N97のミニPCを買った話（ついでにCML2.8 Free Tierをベアメタルにインストール）（Qiita、ecodrive 氏）](https://qiita.com/ecodrive/items/5e69c74ad195804fff50)
+- 公開: 2024年12月（CML 2.8.0 Free Tier）
+
+ミニ PC の Windows を消して、CML を直接（ベアメタルで）入れた記事。Free Tier だが、インストールの流れは Personal でも同じ。
+
+| 手順 | 内容 |
+| --- | --- |
+| 1. ダウンロード | CML 本体の **ISO（zip）** と refplat ISO（zip）。どちらも展開して .iso を使う |
+| 2. USB の作成 | Rufus で、CML 本体の ISO からブータブル USB を作る。refplat はこの時点では不要 |
+| 3. USB から起動 | BIOS で起動順の先頭を USB にする |
+| 4. インストール | メニューの先頭「Install CML」を選ぶ。終わると自動で再起動 |
+| 5. 初回の起動 | もう一度 USB から起動し、2番目の「Boot from next volume」を選ぶ。CML が起動したら USB を抜く |
+| 6. 初期設定 | ユーザーアカウントとネットワークを設定 |
+| 7. refplat を入れる | refplat ISO を USB などで CML に渡してマウントし、Cockpit（`https://IP:9090`）の「Copy Refplat ISO」で取り込む |
+| 8. 確認 | Web 画面の System Status がすべて READY になれば完了 |
+
+!!! note "自分の Z8 G4 で入れるときのメモ"
+    - HP のワークステーションは、起動直後に **F10 で BIOS 設定、F9 で起動するデバイスの選択**
+    - refplat を入れるまでは、画面右下に赤字で `SYSTEM HEALTH ISSUE` が出る。故障ではない
+    - 最低要件は、メモリ 8GB 以上、物理 4 コア以上の Intel CPU（VT-x と EPT 対応）、NIC 1つ以上、ディスク 32GB 以上
+
 ## CML の基本操作（構築したあとの使い方）
 
 - リンク: [【Cisco Modeling Labs】CML2 最初の一歩（note、えのきこ氏）](https://note.com/enokiko/n/n3ff481cbae3e)
