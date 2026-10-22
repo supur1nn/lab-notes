@@ -27,6 +27,16 @@ ASN は **Autonomous System Number（AS 番号）** の略。N は Number。AS �
 !!! tip "似た作りの略語"
     「〜の番号・識別子」という意味の略語は、最後に N（Number）や ID が付いていることが多い。例：SID（Segment ID、Segment Routing のセグメントの番号）、VNI（VXLAN Network Identifier、VXLAN のネットワークの番号）。
 
+## RFC
+
+| RFC | 内容 |
+| --- | --- |
+| RFC 4271 | BGP-4（BGP 本体） |
+| RFC 4760 | MP-BGP（VPNv4 などを運ぶ拡張） |
+| RFC 4364 | BGP/MPLS IP VPN（L3VPN。RD・RT の定義） |
+| RFC 4456 | ルートリフレクタ |
+| RFC 6793 | 4バイト ASN |
+
 ## ケイパビリティの確認：show ip bgp neighbors
 
 `show ip bgp neighbors` で、ネイバーとどのケイパビリティ（機能）をやり取りできているかを確認できる。

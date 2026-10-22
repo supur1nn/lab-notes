@@ -93,6 +93,7 @@ nav:
           - protocols/segment-routing/index.md
       - IOS XR:
           - protocols/ios-xr/index.md
+          - ABF: protocols/ios-xr/abf.md
   - 検証:
       - 検証の進め方: verification/workflow.md
       - 検証一覧: verification/index.md
