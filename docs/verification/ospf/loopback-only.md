@@ -126,3 +126,41 @@ RP/0/RP0/CPU0:iOS-XR-R1#show route ospf
 
 - R1 と R2 をつなぐ G0/0/0/0 でも OSPF を有効にすると、ループバックは広報されるか
 - ループバックのインターフェースは、OSPF の Hello を送っているのか
+
+## 次回のアクション
+
+**物理 IF だけで OSPF を有効にすると、どうなるのか**を試す。今回の構成なら、R1・R2 とも **G0/0/0/0 だけ**で OSPF を有効にする（Loopback0 は OSPF から外す）。
+
+=== "R1"
+
+    ```
+    configure
+     router ospf 1
+      area 0
+       no interface Loopback0
+       interface GigabitEthernet0/0/0/0
+       !
+      !
+     !
+    commit
+    end
+    ```
+
+=== "R2"
+
+    ```
+    configure
+     router ospf 1
+      area 0
+       no interface Loopback0
+       interface GigabitEthernet0/0/0/0
+       !
+      !
+     !
+    commit
+    end
+    ```
+
+- 試す前に、仮説（ネイバーは張れるか、何が広報されるか、ループバックは広報されるか）を書いておく
+- 確認するコマンドは今回と同じ（`show ospf interface brief`、`show ospf neighbor`、`show route ospf`、`show ospf database`）にして、結果を見比べる
+- 今回の結果と比べやすいように、別の検証ページとして記録する
