@@ -29,10 +29,10 @@ graph LR
 | R1 - R2 | 192.168.2.0/24 | R1 G0/0/0/0（.1） - R2 G0/0/0/0（.2） |
 | R2 - desktop-0 | 192.168.3.0/24 | R2 G0/0/0/1（.2） - desktop-0 E1（.1） |
 
-| ルータ | Loopback0 |
-| --- | --- |
-| R1 | （ループバックのアドレスを書く） |
-| R2 | （ループバックのアドレスを書く） |
+| ルータ | ホスト名 | OSPF ルータ ID | Loopback0 |
+| --- | --- | --- | --- |
+| R1 | iOS-XR-R1 | 1.1.1.1 | （ループバックのアドレスを書く） |
+| R2 | iOS-XR-R2 | 2.2.2.2 | （ループバックのアドレスを書く） |
 
 ## 仮説
 
@@ -42,17 +42,34 @@ graph LR
 
 OSPF は**ループバックだけ**で有効にした。R1 と R2 をつなぐ G0/0/0/0 は、OSPF に入れていない。
 
-```
-router ospf 1
- area 0
-  interface Loopback0
-  !
- !
-!
-commit
-```
+=== "R1"
 
-（実際に入れた設定をここに貼る）
+    ```
+    RP/0/RP0/CPU0:iOS-XR-R1#show run router ospf
+    router ospf 1
+     router-id 1.1.1.1
+     area 0
+      interface Loopback0
+      !
+     !
+    !
+    ```
+
+=== "R2"
+
+    ```
+    RP/0/RP0/CPU0:iOS-XR-R2#show run router ospf
+    router ospf 1
+     router-id 2.2.2.2
+     area 0
+      interface Loopback0
+      !
+     !
+    !
+    ```
+
+- 両方とも `area 0` の中に `interface Loopback0` だけが入っている
+- ルータ ID は手動で設定（R1 が 1.1.1.1、R2 が 2.2.2.2）
 
 ## 確認
 
