@@ -4,5 +4,6 @@
 
 | 日付 | 内容 |
 |------|------|
+| [2026-10-23](2026-10-23.md) | CML 専用機の完成、XRv 9000 の RAM（16GB では起動しない）、Desktop ノード（Linux）の IP アドレス設定 |
 | [2026-10-18](2026-10-18.md) | MPLS L3VPN の経路の流れ（RD・RT・VPN ラベル）、デバッグコマンド、BGP のケイパビリティ・ベストパス・マルチパス |
 | [2026-10-17](2026-10-17.md) | CML Free 導入、show ip route の L と C、OSPF 有効化の IOS / IOS XR の違い、OSPF で広報される経路、exec-timeout と write memory |
