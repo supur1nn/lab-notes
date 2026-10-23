@@ -31,6 +31,12 @@
 
     仮説 → 設定 → 確認 → 結果 → 考察
 
+- :material-wrench-outline:{ .lg .middle } **[トラブルシューティング](troubleshooting/index.md)**
+
+    ---
+
+    うまくいかなかったことと切り分けの手順
+
 - :material-bookmark-multiple-outline:{ .lg .middle } **[参考記事](articles/index.md)**
 
     ---
@@ -41,7 +47,7 @@
 
 ## 更新履歴
 
-- 2026-10-23: CML-Personal をベアメタルで構築した手順とハマりどころ、Wake on LAN の設定を追加。勉強記録（XRv 9000 の RAM、Linux の IP 設定）を追加。ラボ環境とロードマップを更新
+- 2026-10-23: CML-Personal をベアメタルで構築した手順とハマりどころ、Wake on LAN の設定を追加。勉強記録（XRv 9000 の RAM、Linux の IP 設定）とトラブルシューティング（ping が届かないとき）を追加。ラボ環境とロードマップを更新
 - 2026-10-22: BGP のページに「AS と ASN」の違いを追加。IOS XR に ABF のページを追加。OSPF・BGP のページに RFC 番号を追加
 - 2026-10-21: プロトコルに VRF のページを追加（IOS XR の import の RT と route-policy は AND で効く）
 - 2026-10-20: CML の参考記事に CML-Personal の購入・構築、ベアメタルへのインストール、CML の基本操作の記事を追加
