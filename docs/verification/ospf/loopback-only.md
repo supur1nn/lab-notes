@@ -1,7 +1,7 @@
 # OSPF をループバックだけで有効にしたとき
 
 !!! info "検証中"
-    結果までは確認済み。理由（考察）はこれから確かめる。進め方は [検証の進め方](../workflow.md) を参照。
+    結果と、ネイバーが張れていないことまでは確認済み。ネイバーが張れない理由はこれから確かめる。進め方は [検証の進め方](../workflow.md) を参照。
 
 - 開始日：2026-10-23（[勉強記録](../../study-log/2026-10-23.md)）
 - 関連：[OSPF で広報される経路](advertised-routes.md)（IOSv で、ループバックは OSPF を有効にしないと広報されないことを確認した）
@@ -31,7 +31,7 @@ graph LR
 
 | ルータ | ホスト名 | OSPF ルータ ID | Loopback0 |
 | --- | --- | --- | --- |
-| R1 | iOS-XR-R1 | 1.1.1.1 | （ループバックのアドレスを書く） |
+| R1 | iOS-XR-R1 | 1.1.1.1 | 1.1.1.1/32 |
 | R2 | iOS-XR-R2 | 2.2.2.2 | （ループバックのアドレスを書く） |
 
 ## 仮説
@@ -80,7 +80,35 @@ OSPF は**ループバックだけ**で有効にした。R1 と R2 をつなぐ 
 | R1 / R2 | `show route ospf` | 対向のループバックが OSPF の経路（`O`）として載っているか |
 | R1 / R2 | `show ospf database` | どんな LSA を持っているか |
 
-（確認コマンドの出力をここに貼る）
+R1 での出力（日時の行は省略）。
+
+```
+RP/0/RP0/CPU0:iOS-XR-R1#show ospf interface brief
+
+* Indicates MADJ interface, (P) Indicates fast detect hold down state
+
+Interfaces for OSPF 1
+
+Interface          PID   Area            IP Address/Mask    Cost  State Nbrs F/C
+Lo0                1     0               1.1.1.1/32         1     LOOP  0/0
+
+RP/0/RP0/CPU0:iOS-XR-R1#show ospf neighbor
+
+RP/0/RP0/CPU0:iOS-XR-R1#show route ospf
+
+% No matching routes found
+```
+
+| コマンド | わかったこと |
+| --- | --- |
+| `show ospf interface brief` | OSPF が有効なのは **Lo0 だけ**。State は `LOOP`、ネイバー数（Nbrs F/C）は `0/0` |
+| `show ospf neighbor` | **何も表示されない**。ネイバーが1つもない |
+| `show route ospf` | `No matching routes found`。OSPF で学んだ経路が1つもない |
+
+!!! note "`show ospf database` は打ち直す"
+    `show ospf detabase` と打ったら `OSPF: No router process database` と出た。綴りが違うため、IOS XR は `detabase` を **OSPF のプロセス名**として読んでしまい、「そんな名前のプロセスはない」と返している。`show ospf database` で打ち直す。
+
+（R2 の出力をここに貼る）
 
 ## 結果
 
@@ -89,10 +117,12 @@ OSPF は**ループバックだけ**で有効にした。R1 と R2 をつなぐ 
 
 ## 考察
 
-（なぜ広報されなかったのか。`show ospf neighbor` と `show ospf database` の出力を根拠に書く）
+- 確認コマンドからわかったことは、**ループバックに OSPF を設定しても、ネイバーが張れていない**ということ
+- ネイバーがいないので、ループバックの情報を渡す相手がいない。だから対向に広報されなかったと考えられる
+
+（ネイバーが張れなかった理由は、次の問いで確かめる）
 
 ## 次の問い
 
 - R1 と R2 をつなぐ G0/0/0/0 でも OSPF を有効にすると、ループバックは広報されるか
-- `show ospf neighbor` で、ネイバーは今どういう状態か
 - ループバックのインターフェースは、OSPF の Hello を送っているのか
