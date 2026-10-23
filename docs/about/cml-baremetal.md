@@ -3,7 +3,7 @@
 XR（IOS XRv 9000）を6台以上動かすために、中古のワークステーションを CML 専用機にして、CML-Personal をベアメタルで入れたときの記録です。手順と、実際にハマったところをまとめています。
 
 !!! info "このページで載せていない情報"
-    パスワード、ライセンスの登録トークン、Smart Account / Virtual Account の番号、自宅のネットワークの IP アドレスやルータの機種、機器のシリアル番号、SSH の鍵の指紋などは載せていません。IP アドレスは `<CML の IP>` のように置き換えています。refplat などのイメージファイルも配布していません。
+    パスワード、ライセンスの登録トークン、Smart Account / Virtual Account の番号、自宅のネットワークの IP アドレスやルータの機種、機器のシリアル番号や MAC アドレス、SSH の鍵の指紋などは載せていません。IP アドレスは `<CML の IP>` のように置き換えています。refplat などのイメージファイルも配布していません。
 
 ## 環境
 
@@ -36,6 +36,7 @@ graph TD
   F --> G["⑦ refplat を取り込む"]
   G --> H["⑧ ライセンスを登録する"]
   H --> I["⑨ XRv 9000 を起動して確認"]
+  I --> J["⑩ Wake on LAN で電源を入れる"]
 ```
 
 ## ① ライセンス購入・ダウンロード
@@ -199,6 +200,74 @@ XRv 9000 を6台置いて、同時に起動できた。
 | CPU の負荷 | 約 7%（48 CPU 中） |
 
 メモリの割り当ては 128GB に対してほぼいっぱいなので、CE などは軽い IOL を足していく。
+
+## ⑩ Wake on LAN で電源を入れる
+
+CML 専用機の前まで行かなくても、普段のパソコンから電源を入れられるようにした。
+
+!!! info "載せていない情報"
+    MAC アドレスは機器を見分ける固有の番号なので、このページでは `AA-BB-CC-DD-EE-FF` に置き換えている。自分の MAC アドレスは、手元のメモにだけ残している。
+
+### 1. BIOS で有効にする（HP Z8 G4）
+
+起動直後に **F10** で BIOS に入る。
+
+| 場所 | 項目 | 設定 |
+| --- | --- | --- |
+| Advanced → Power Management Options | S5 Maximum Power Savings | **無効**（有効だと電源を切ったときに LAN も止まり、起こせない） |
+| Advanced → **Built-In Device Options** | **Wake On LAN** | **Boot to Hard Drive** |
+
+Wake On LAN の選択肢の意味：
+
+| 選択肢 | 意味 |
+| --- | --- |
+| Disabled | 使わない |
+| Boot to Network | ネットワークから起動しようとする（CML が起動しない） |
+| **Boot to Hard Drive** | 中の SSD から起動する。USB を挿したままでもインストーラーが起動しないので安全 |
+| Boot to Normal Boot Order | 普段の起動順で起動する |
+
+F10 で保存して終了。
+
+!!! tip "見つけにくかったところ"
+    Power Management Options の中にはなく、**Built-In Device Options** の中にあった。UEFI Drivers タブの VROC や iSCSI は関係ないので触らない。
+
+### 2. CML 側で確認する（Cockpit のターミナル）
+
+LAN ポートの名前と MAC アドレスを確認する。
+
+```
+ip -br link
+```
+
+ケーブルがつながっている（`UP` の）ポートの名前と MAC アドレスを控える。続けて、そのポートの Wake on LAN の状態を確認する。
+
+```
+sudo ethtool <ポート名> | grep -i wake
+```
+
+`Wake-on: g` なら有効。`d` なら無効で、CML 側でも有効にする設定が必要。今回は最初から `g` だった。
+
+Z8 G4 には LAN ポートが2つ（Embedded LAN Controller (AMT) と Intel X722）ある。ポートによっては Wake on LAN が効かないことがあるので、うまくいかないときはケーブルをもう一方に挿し替えて試す。
+
+### 3. 電源を切る
+
+Cockpit の「概要」→ 右上の ▼ →「シャットダウン」。または電源ボタンを1回だけ短く押す。**電源ケーブルは挿したまま**にする。
+
+### 4. 普段のパソコンから起こす（PowerShell）
+
+1行目を自分の MAC アドレスに置き換えて実行する（`:` 区切りでも `-` 区切りでもよい）。
+
+```
+$mac = 'AA-BB-CC-DD-EE-FF'
+$b = [byte[]]($mac -split '[:-]' | ForEach-Object { [Convert]::ToByte($_, 16) }); $p = [byte[]](@(0xFF) * 6 + $b * 16)
+$c = New-Object Net.Sockets.UdpClient; $c.EnableBroadcast = $true; [void]$c.Send($p, $p.Length, '255.255.255.255', 9); $c.Close()
+```
+
+「マジックパケット」と呼ばれる合図（`FF` を6回、続けて MAC アドレスを16回並べたもの）を、LAN 全体にブロードキャストで送っている。電源が入れば成功。CML が起動するまで数分待ってから、ブラウザで開く。
+
+!!! warning "注意"
+    - 合図は**家の中のネットワークからだけ**届く。外出先から起こすには、VPN（Tailscale など）の入口になる機器を家に置く必要がある
+    - 電源が入らないときは、宛先を `255.255.255.255` から、自宅のネットワークのブロードキャストアドレス（例：`192.168.x.255`）に変えて試す
 
 ## 運用のメモ
 

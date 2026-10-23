@@ -35,7 +35,7 @@ XR を6台以上動かせる CML の専用機を用意する。
 - [x] XRv 9000 を6台同時に起動する
 - [ ] XRv 9000 で OSPF・BGP が動くことを確認する
 - [ ] CML Free で作ったラボ（YAML）を新しい CML に移す
-- [ ] （あとで）Wake on LAN で電源を入れられるようにする
+- [x] Wake on LAN で電源を入れられるようにする
 - [ ] （あとで）外出先から VPN 経由でラボにつなげるようにする
 
 構築の手順とハマりどころは [CML-Personal をベアメタルで構築する](../about/cml-baremetal.md) にまとめた。
