@@ -32,7 +32,7 @@ graph LR
 | ルータ | ホスト名 | OSPF ルータ ID | Loopback0 |
 | --- | --- | --- | --- |
 | R1 | iOS-XR-R1 | 1.1.1.1 | 1.1.1.1/32 |
-| R2 | iOS-XR-R2 | 2.2.2.2 | （ループバックのアドレスを書く） |
+| R2 | iOS-XR-R2 | 2.2.2.2 | 2.2.2.2/32 |
 
 ## 仮説
 
@@ -163,4 +163,4 @@ RP/0/RP0/CPU0:iOS-XR-R1#show route ospf
 
 - 試す前に、仮説（ネイバーは張れるか、何が広報されるか、ループバックは広報されるか）を書いておく
 - 確認するコマンドは今回と同じ（`show ospf interface brief`、`show ospf neighbor`、`show route ospf`、`show ospf database`）にして、結果を見比べる
-- 今回の結果と比べやすいように、別の検証ページとして記録する
+- 今回の結果と比べやすいように、別の検証ページとして記録する → [OSPF を物理 IF だけで有効にしたとき](physical-if-only.md)

@@ -102,6 +102,7 @@ nav:
           - verification/ospf/index.md
           - OSPFで広報される経路: verification/ospf/advertised-routes.md
           - ループバックだけで有効にしたとき: verification/ospf/loopback-only.md
+          - 物理IFだけで有効にしたとき: verification/ospf/physical-if-only.md
       - CEの経路がVRFに入るまで: verification/l3vpn-ce-route-to-vrf.md
   - トラブルシューティング:
       - troubleshooting/index.md
