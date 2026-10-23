@@ -25,14 +25,20 @@ XR を6台以上動かせる CML の専用機を用意する。
 
 - [x] CML Free を自宅の PC に入れて、IOSv でラボを組む
 - [x] XR を動かせるワークステーションを用意する（CML 専用機、ベアメタルで運用）
-- [ ] CML-Personal のライセンスを買う（XR を使うのに必要）
-- [ ] CML のベアメタル用インストール ISO と refplat ISO をダウンロードする
-- [ ] BIOS で VT-x / VT-d が有効か確認する
+- [x] CML-Personal のライセンスを買う（XR を使うのに必要）
+- [x] CML のベアメタル用インストール ISO と refplat ISO をダウンロードする
+- [x] BIOS で VT-x / VT-d を有効にする
 - [ ] メモリのテスト（memtest86）を流す
-- [ ] CML をベアメタルでインストールし、固定 IP にする
+- [x] CML をベアメタルでインストールし、IP アドレスを固定する（ルータの DHCP 固定割当）
+- [x] refplat（ルータのイメージ）を取り込む
+- [x] CML-Personal のライセンスを登録する
+- [x] XRv 9000 を6台同時に起動する
+- [ ] XRv 9000 で OSPF・BGP が動くことを確認する
 - [ ] CML Free で作ったラボ（YAML）を新しい CML に移す
-- [ ] XRv 9000 を起動して、OSPF・BGP が動くことを確認する
+- [ ] （あとで）Wake on LAN で電源を入れられるようにする
 - [ ] （あとで）外出先から VPN 経由でラボにつなげるようにする
+
+構築の手順とハマりどころは [CML-Personal をベアメタルで構築する](../about/cml-baremetal.md) にまとめた。
 
 ## ② 基礎固めと SPCOR
 

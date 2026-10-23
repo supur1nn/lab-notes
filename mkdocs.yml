@@ -108,3 +108,4 @@ nav:
   - このサイトについて:
       - サイトの作り方: about/how-this-site-works.md
       - ラボ環境: about/lab-environment.md
+      - CMLベアメタル構築: about/cml-baremetal.md
