@@ -6,3 +6,4 @@
 |------|------|------|
 | [OSPF で広報される経路](ospf-advertised-routes.md) | インターフェースで OSPF を有効にしたとき、どんな経路が、どんな形で広報されるのか | 検証中 |
 | [CE から受けた経路が PE の VRF に入るまで](l3vpn-ce-route-to-vrf.md) | MPLS L3VPN で、CE から受けた経路を PE はどういう順番で VRF に入れるのか | 検証前 |
+| [OSPF をループバックだけで有効にしたとき](ospf-loopback-only.md) | IOS XR で、OSPF をループバックだけで有効にしたとき、ループバックは対向に広報されるのか | 検証中（結果まで） |
