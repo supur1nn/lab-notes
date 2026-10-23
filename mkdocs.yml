@@ -98,8 +98,10 @@ nav:
   - 検証:
       - 検証の進め方: verification/workflow.md
       - 検証一覧: verification/index.md
-      - OSPFで広報される経路: verification/ospf-advertised-routes.md
-      - OSPFをループバックだけで有効にしたとき: verification/ospf-loopback-only.md
+      - OSPF:
+          - verification/ospf/index.md
+          - OSPFで広報される経路: verification/ospf/advertised-routes.md
+          - ループバックだけで有効にしたとき: verification/ospf/loopback-only.md
       - CEの経路がVRFに入るまで: verification/l3vpn-ce-route-to-vrf.md
   - トラブルシューティング:
       - troubleshooting/index.md
