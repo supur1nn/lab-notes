@@ -152,6 +152,33 @@ Link ID         ADV Router      Age         Seq#       Checksum Link count
 | `show route ospf` | R1・R2 とも、OSPF で学んだ経路は**なし** |
 | `show ospf database` | Router LSA が 1.1.1.1 と 2.2.2.2 の **2つ**。どちらも Link count は 2 |
 
+#### Router LSA の中身
+
+R2 の Router LSA（`show ospf database router` の一部）。
+
+```
+LS Type: Router Links
+Link State ID: 2.2.2.2
+Advertising Router: 2.2.2.2
+ Number of Links: 2
+
+  Link connected to: another Router (point-to-point)
+   (Link ID) Neighboring Router ID: 1.1.1.1
+   (Link Data) Router Interface address: 192.168.2.2
+    Number of TOS metrics: 0
+     TOS 0 Metrics: 1
+
+  Link connected to: a Stub Network
+   (Link ID) Network/subnet number: 192.168.2.0
+   (Link Data) Network Mask: 255.255.255.0
+    Number of TOS metrics: 0
+     TOS 0 Metrics: 1
+```
+
+#### ルータ間のネットワーク（192.168.2.0/24）
+
+- `show route ospf` には出てこないが、`show route` では **Connected（`C`）** として載っている
+
 ## ステップ②：ルータ間＋PC 向け
 
 ### 設定
@@ -214,6 +241,8 @@ Link ID         ADV Router      Age         Seq#       Checksum Link count
 - ネイバーは張れているのに、PC 向けのネットワークは広報されていない
 - このことから、**OSPF は、OSPF を有効にした IF の経路だけを広報する**のではないかと考えた
 - たとえば R1 に PC が複数台つながっていて、PC1 側の IF では OSPF を有効にし、PC2 側の IF では有効にしていない場合、**有効にした PC1 側の IP アドレスの経路だけが広報される**はず
+- Router LSA の **Number of Links** は、そのルータから見て**何台とつながっているか**だと思う。R1 なら R2 と desktop-1、R2 なら R1 と desktop-0 の2台
+- 192.168.2.0/24 は、`show route` では Connected として出てくる
 
 ### ステップ②
 
@@ -238,3 +267,5 @@ Link ID         ADV Router      Age         Seq#       Checksum Link count
 2. **ルータ間のネットワークはどう見えるか**：192.168.2.0/24 は OSPF を有効にした IF のネットワークなのに、`show route ospf` には出てこなかった。`show route` （ospf を付けない）で 192.168.2.0/24 が何として載っているか見てみよう。考察の「有効にした IF の経路だけを広報する」と矛盾しないか考えてみよう
 3. **PC1・PC2 の例を本当に試す**：考察で書いた例は、そのまま検証できる。R1 の空いている IF（G0/0/0/2 など）に Desktop をもう1台つないで、片方だけ OSPF を有効にしてみよう
 4. **PC 側の IF で OSPF を有効にすると、何が起きるか**：ステップ②のあと、PC 側の IF で `show ospf interface GigabitEthernet0/0/0/1` を見てみよう。PC は OSPF をしゃべらないのに、R1 は PC に向けて何かを送っていないか。送っているなら、それは困ることか。`passive` というキーワードを調べてみよう
+5. **Number of Links の「2」をもう一度読む**：貼ってくれた R2 の Router LSA には `Link connected to:` が2つある。1つ目と2つ目は、それぞれ**何**とつながっていると書いてあるか。その中に desktop-0（192.168.3.0/24）は出てくるか。考察の「何台とつながっているか」と合っているか、読み比べてみよう。ステップ②のあとで、同じ R2 の LSA の Number of Links と `Link connected to:` がどう変わるかも見てみよう
+6. **同じネットワークが2つの方法で知られているとき**：192.168.2.0/24 は R1・R2 とも Router LSA に入っているのに、ルーティングテーブルでは `O` ではなく `C` になった。同じ宛先を Connected と OSPF の両方で知っているとき、ルータはどちらを選ぶのか。`show route 192.168.2.0/24` で出てくる数字や、「アドミニストレーティブディスタンス」を調べてみよう
