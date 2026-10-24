@@ -1,7 +1,7 @@
 # OSPF を物理 IF だけで有効にしたとき
 
 !!! info "検証中"
-    ステップ①は結果と考察まで記録済み。ステップ②はこれから設定する。進め方は [検証の進め方](../workflow.md) を参照。
+    ステップ①は結果と考察まで記録済み。ステップ②は R1 側（②-a）まで確認済み。進め方は [検証の進め方](../workflow.md) を参照。
 
 - 開始日：2026-10-23（[勉強記録](../../study-log/2026-10-23.md)）
 - 前の検証：[OSPF をループバックだけで有効にしたとき](loopback-only.md)（ネイバーが張れず、ループバックは広報されなかった）
@@ -182,58 +182,105 @@ Advertising Router: 2.2.2.2
 
 ## ステップ②：ルータ間＋PC 向け
 
-### 設定
+②は2回に分けて進める。
 
-ステップ①の設定に、PC 向けの **G0/0/0/1** を追加する。
-
-=== "R1"
-
-    ```
-    configure
-     router ospf 1
-      area 0
-       interface GigabitEthernet0/0/0/1
-       !
-      !
-     !
-    commit
-    end
-    ```
-
-=== "R2"
-
-    ```
-    configure
-     router ospf 1
-      area 0
-       interface GigabitEthernet0/0/0/1
-       !
-      !
-     !
-    commit
-    end
-    ```
-
-### 確認
-
-ステップ①と同じコマンドで確認して、見比べる。
-
-| どこで | コマンド | 何を見るか |
+| | R1 G0/0/0/1（desktop-1 側） | R2 G0/0/0/1（desktop-0 側） |
 | --- | --- | --- |
-| R1 / R2 | `show ospf interface brief` | OSPF が有効な IF が増えたか |
-| R1 / R2 | `show ospf neighbor` | ネイバーの数・相手は変わったか |
-| R1 / R2 | `show route ospf` | 対向の PC 側のネットワークが `O` で載るか |
-| R1 / R2 | `show ospf database` | LSA の数・Link count は変わったか |
-| desktop-1 | `ping 192.168.3.1` | PC 同士で通信できるか |
+| ②-a | **OSPF を有効化** | まだ入れない |
+| ②-b | 有効 | **OSPF を有効化** |
 
-（設定後の出力をここに貼る）
+### ②-a：R1 の desktop-1 側だけ有効化
+
+#### 設定
+
+R1 だけに、PC 向けの G0/0/0/1 を追加した（R2 はステップ①のまま）。
+
+```
+RP/0/RP0/CPU0:iOS-XR-R1#show run router ospf
+router ospf 1
+ router-id 1.1.1.1
+ area 0
+  interface GigabitEthernet0/0/0/0
+   network point-to-point
+  !
+  interface GigabitEthernet0/0/0/1
+  !
+ !
+!
+```
+
+#### 確認
+
+```
+RP/0/RP0/CPU0:iOS-XR-R1#show ospf interface brief
+
+Interface          PID   Area            IP Address/Mask    Cost  State Nbrs F/C
+Gi0/0/0/0          1     0               192.168.2.1/24     1     P2P   1/1
+Gi0/0/0/1          1     0               192.168.1.2/24     1     DR    0/0
+```
+
+```
+RP/0/RP0/CPU0:iOS-XR-R1#show ospf neighbor
+
+Neighbor ID     Pri   State           Dead Time   Address         Interface
+2.2.2.2         1     FULL/  -        00:00:37    192.168.2.2     GigabitEthernet0/0/0/0
+
+Total neighbor count: 1
+```
+
+```
+RP/0/RP0/CPU0:iOS-XR-R2#show route ospf
+
+O    192.168.1.0/24 [110/2] via 192.168.2.1, 00:01:21, GigabitEthernet0/0/0/0
+```
+
+```
+RP/0/RP0/CPU0:iOS-XR-R1#show route ospf
+
+% No matching routes found
+```
+
+R2 から見た R1 の Router LSA（`show ospf database router 1.1.1.1`、一部）。
+
+```
+  LS Type: Router Links
+  Link State ID: 1.1.1.1
+  Advertising Router: 1.1.1.1
+  LS Seq Number: 80000004
+   Number of Links: 3
+
+    Link connected to: another Router (point-to-point)
+     (Link ID) Neighboring Router ID: 2.2.2.2
+     (Link Data) Router Interface address: 192.168.2.1
+
+    Link connected to: a Stub Network
+     (Link ID) Network/subnet number: 192.168.2.0
+     (Link Data) Network Mask: 255.255.255.0
+
+    Link connected to: a Stub Network
+     (Link ID) Network/subnet number: 192.168.1.0
+     (Link Data) Network Mask: 255.255.255.0
+```
+
+| コマンド | 出力からわかる事実 |
+| --- | --- |
+| `show ospf interface brief`（R1） | OSPF が有効な IF が **2つ**に増えた。G0/0/0/1 の State は **DR**、ネイバー数は **0/0** |
+| `show ospf neighbor`（R1） | ネイバーは R2 の1つのまま |
+| `show route ospf`（R2） | **192.168.1.0/24 を `O` で学習**（`[110/2]`、次は 192.168.2.1） |
+| `show route ospf`（R1） | OSPF の経路は**なし**のまま |
+| R1 の Router LSA | Number of Links が **2 → 3**。増えたのは **Stub Network 192.168.1.0/24**。Seq も上がった |
+
+### ②-b：R2 の desktop-0 側も有効化
+
+（これから）
 
 ## 結果
 
 | ステップ | 何が起きたか | 仮説どおりか |
 | --- | --- | --- |
 | ① ルータ間だけ | ネイバーは張れた（FULL）が、PC 向けのネットワーク（192.168.1.0/24、192.168.3.0/24）は広報されなかった | 仮説どおり |
-| ② ルータ間＋PC 向け | （書く） | （書く） |
+| ②-a R1 の PC 側だけ | R2 が 192.168.1.0/24 を OSPF で学習した。R1 の LSA にはスタブネットワークが1つ増えた | （書く） |
+| ②-b R2 の PC 側も | （これから） | （書く） |
 
 ## 考察
 
@@ -278,3 +325,6 @@ Advertising Router: 2.2.2.2
 8. ⏸ **1本の線なのに、なぜリンクが2つなのか**（いったん保留）：R1 と R2 は1本のケーブルでつながっているのに、R2 の LSA には「別のルータ」と「スタブネットワーク」の2つが書かれていた。それぞれは、相手の**誰**を、または**何**を伝えているのか。`network point-to-point` を外して（ブロードキャストに戻して）同じ LSA を見ると、リンクの書き方はどう変わるか試してみよう
 9. ✅ **「スタブネットワーク」とは**（予想を仮説に記入済み）：ステップ②で PC 向けの IF を OSPF に入れたら、R1 の LSA に増えるリンクは「別のルータ」と「スタブネットワーク」のどちらになると思うか。予想を書いてから確かめよう
 10. **スタブかどうかを決めているのは何か**：予想の理由は「desktop の先にはどこにも行けないから」だった。では、desktop-0 の代わりに **OSPF を設定していないルータ**（その先にさらにネットワークがある）をつないだら、R2 の LSA ではスタブネットワークになるか、別のルータになるか。逆に、その先のルータで OSPF を有効にしたらどうなるか。「先に行けるか」と「先に OSPF のルータがいるか」のどちらで決まっているのか考えてみよう
+11. **②-a の今、PC 同士は通信できるか**：R2 は 192.168.1.0/24 を知った。では desktop-1 から `ping 192.168.3.1` は通るか。行きと帰りに分けて、R1 と R2 がそれぞれ相手の PC 側のネットワークを知っているか、ルーティングテーブルで確かめてから予想しよう（②-b の前に試すと、違いがよくわかる）
+12. **`[110/2]` の2つの数字**：R2 の `show route ospf` の `[110/2]` は、それぞれ何を表しているか。110 は⑦の答えにもなる。2 はどこから来たのか、`show ospf interface brief` の Cost の列と、R1 の LSA の Metrics を足し算してみよう
+13. **G0/0/0/1 の State が「DR」**：desktop-1 側の IF は、ネイバーが 0 なのに DR になっている。ルータ間の G0/0/0/0 は P2P だった。この違いはどこから来たか（設定を見比べよう）。DR とは何をする役か、④の `passive` とあわせて調べてみよう
