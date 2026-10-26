@@ -76,6 +76,7 @@ nav:
       - CCIE SP合格までのロードマップ: plan/index.md
   - 勉強記録:
       - study-log/index.md
+      - 2026-10-26 IOS XRのmax-metric: study-log/2026-10-26.md
       - 2026-10-23 CML専用機の完成とLinuxのIP設定: study-log/2026-10-23.md
       - 2026-10-18 L3VPNの経路の流れとBGP: study-log/2026-10-18.md
       - 2026-10-17 CML導入とshow ip route: study-log/2026-10-17.md
@@ -103,6 +104,7 @@ nav:
           - OSPFで広報される経路: verification/ospf/advertised-routes.md
           - ループバックだけで有効にしたとき: verification/ospf/loopback-only.md
           - 物理IFだけで有効にしたとき: verification/ospf/physical-if-only.md
+          - max-metric（起動時にコスト最大）: verification/ospf/max-metric-on-startup.md
       - CEの経路がVRFに入るまで: verification/l3vpn-ce-route-to-vrf.md
   - トラブルシューティング:
       - troubleshooting/index.md

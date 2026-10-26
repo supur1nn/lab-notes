@@ -4,5 +4,5 @@
 
 | 検証 | 問い | 状態 |
 |------|------|------|
-| [OSPF の検証](ospf/index.md) | OSPF に関する検証（3件） | — |
+| [OSPF の検証](ospf/index.md) | OSPF に関する検証（4件） | — |
 | [CE から受けた経路が PE の VRF に入るまで](l3vpn-ce-route-to-vrf.md) | MPLS L3VPN で、CE から受けた経路を PE はどういう順番で VRF に入れるのか | 検証前 |
