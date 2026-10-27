@@ -106,6 +106,7 @@ nav:
           - 物理IFだけで有効にしたとき: verification/ospf/physical-if-only.md
           - max-metric（起動時にコスト最大）: verification/ospf/max-metric-on-startup.md
       - CEの経路がVRFに入るまで: verification/l3vpn-ce-route-to-vrf.md
+      - RTがあるのになぜRDが必要か: verification/l3vpn-why-rd.md
   - トラブルシューティング:
       - troubleshooting/index.md
       - pingが届かないとき: troubleshooting/ping-unreachable.md
