@@ -133,3 +133,4 @@ router bgp 65000
 | ページ | 内容 |
 |------|------|
 | [検証：CE から受けた経路が PE の VRF に入るまで](../../verification/l3vpn-ce-route-to-vrf.md) | L3VPN で、PE の VRF・VPNv4 テーブルに経路が入る順番（検証前） |
+| [検証：MPLS L3VPN で、BGP のネクストホップはどうなるのか](../../verification/l3vpn-bgp-nexthop.md) | 区間ごとの BGP のネクストホップ、PE の再帰とラベル（検証前） |

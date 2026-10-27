@@ -7,3 +7,4 @@
 | [OSPF の検証](ospf/index.md) | OSPF に関する検証（4件） | — |
 | [CE から受けた経路が PE の VRF に入るまで](l3vpn-ce-route-to-vrf.md) | MPLS L3VPN で、CE から受けた経路を PE はどういう順番で VRF に入れるのか | 検証前 |
 | [RT があるのに、なぜ RD が必要なのか](l3vpn-why-rd.md) | MPLS L3VPN で、RT で VRF を分けられるのに、なぜ RD も設定するのか | 検証前 |
+| [MPLS L3VPN で、BGP のネクストホップはどうなるのか](l3vpn-bgp-nexthop.md) | CE2 から CE1 宛てのパケットで、各ルータの BGP のネクストホップと宛先 IP はどうなっているのか | 検証前 |
