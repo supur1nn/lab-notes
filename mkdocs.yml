@@ -109,6 +109,7 @@ nav:
       - CEの経路がVRFに入るまで: verification/l3vpn-ce-route-to-vrf.md
       - RTがあるのになぜRDが必要か: verification/l3vpn-why-rd.md
       - L3VPNのBGPネクストホップ: verification/l3vpn-bgp-nexthop.md
+      - MPLS VPNを通るパケットの一生: verification/l3vpn-packet-life.md
   - トラブルシューティング:
       - troubleshooting/index.md
       - pingが届かないとき: troubleshooting/ping-unreachable.md
