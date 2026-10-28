@@ -21,3 +21,4 @@ OSPF に関するまとめです。
 | [勉強記録 2026-10-26](../../study-log/2026-10-26.md) | IOS XR の max-metric（起動時に OSPF のコストを最大にする） |
 | [検証：OSPF の max-metric](../../verification/ospf/max-metric-on-startup.md) | max-metric を設定したルータを再起動すると、コストと経路はどう変わるか（検証前） |
 | [トラブルシューティング：OSPF の Hello の間隔が合わないとき](../../troubleshooting/ospf-hello-interval.md) | Hello / Dead の間隔が合わずネイバーが張れない（演習 第1問） |
+| [トラブルシューティング：ルータ間の IF が OSPF の passive になっていたとき](../../troubleshooting/ospf-passive.md) | passive の意味と本来の使い方（演習 第2問） |

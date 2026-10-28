@@ -6,3 +6,4 @@
 |------|------|------|
 | [ping が届かないとき](ping-unreachable.md) | 同じネットワーク内でも ping が届かないときの切り分け。リンクのダウン、IP アドレスの範囲。CML 特有のリンク状態の見え方 | [2026-10-23](../study-log/2026-10-23.md) |
 | [OSPF の Hello の間隔が合わないとき](ospf-hello-interval.md) | ネイバーが張れず、PC 同士の ping が通らない。Hello / Dead の間隔、設定を入れる場所と効く範囲（演習 第1問） | 2026-10-28 |
+| [ルータ間の IF が OSPF の passive になっていたとき](ospf-passive.md) | ネイバーが張れず、PC 同士の ping が通らない。passive の意味と本来の使い方（演習 第2問） | 2026-10-28 |
