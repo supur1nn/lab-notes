@@ -23,3 +23,4 @@ OSPF に関するまとめです。
 | [トラブルシューティング：OSPF の Hello の間隔が合わないとき](../../troubleshooting/ospf-hello-interval.md) | Hello / Dead の間隔が合わずネイバーが張れない（演習 第1問） |
 | [トラブルシューティング：ルータ間の IF が OSPF の passive になっていたとき](../../troubleshooting/ospf-passive.md) | passive の意味と本来の使い方（演習 第2問） |
 | [トラブルシューティング：OSPF のネイバーが EXSTART / EXCHANGE で止まるとき](../../troubleshooting/ospf-mtu-mismatch.md) | MTU の不一致（演習 第3問） |
+| [トラブルシューティング：壊れている場所が2つあったとき](../../troubleshooting/ospf-multiple-faults-1.md) | OSPF の対象外の IF と PC のゲートウェイ（演習 第4問） |

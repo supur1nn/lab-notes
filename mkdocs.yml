@@ -119,6 +119,7 @@ nav:
       - OSPFのHelloの間隔が合わないとき: troubleshooting/ospf-hello-interval.md
       - ルータ間のIFがpassiveのとき: troubleshooting/ospf-passive.md
       - ネイバーがEXSTART/EXCHANGEで止まるとき: troubleshooting/ospf-mtu-mismatch.md
+      - 壊れている場所が2つあったとき: troubleshooting/ospf-multiple-faults-1.md
   - 参考記事:
       - articles/index.md
       - 参考書一覧: articles/books.md
