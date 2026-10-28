@@ -9,3 +9,4 @@
 | [ルータ間の IF が OSPF の passive になっていたとき](ospf-passive.md) | ネイバーが張れず、PC 同士の ping が通らない。passive の意味と本来の使い方（演習 第2問） | 2026-10-28 |
 | [OSPF のネイバーが EXSTART / EXCHANGE で止まるとき](ospf-mtu-mismatch.md) | MTU の不一致で DBD の交換が終わらない。ネイバーの状態から原因の見当をつける（演習 第3問） | 2026-10-28 |
 | [壊れている場所が2つあったとき](ospf-multiple-faults-1.md) | OSPF の対象から外された PC 側の IF と、PC のゲートウェイの間違い。行きと帰りに分けて考える（演習 第4問） | 2026-10-28 |
+| [ネイバーは FULL なのに経路が載らないとき](ospf-network-type-mismatch.md) | ネットワークタイプの不一致（P2P と BROADCAST）。FULL でも安心できない（演習 第5問） | 2026-10-28 |

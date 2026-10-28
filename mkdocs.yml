@@ -120,6 +120,7 @@ nav:
       - ルータ間のIFがpassiveのとき: troubleshooting/ospf-passive.md
       - ネイバーがEXSTART/EXCHANGEで止まるとき: troubleshooting/ospf-mtu-mismatch.md
       - 壊れている場所が2つあったとき: troubleshooting/ospf-multiple-faults-1.md
+      - FULLなのに経路が載らないとき: troubleshooting/ospf-network-type-mismatch.md
   - 参考記事:
       - articles/index.md
       - 参考書一覧: articles/books.md
