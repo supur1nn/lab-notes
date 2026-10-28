@@ -41,6 +41,7 @@ graph LR
 
 - PE-PE 間では **MP-iBGP** を張っている（アドレスファミリは VPNv4、ループバック同士）
 - PE の VRF の経路は、この MP-iBGP で広報されている。そのとき、**VPN ラベルも一緒に広報されている**
+- VPN ラベルの確かめ方は、[MPLS VPN を通るパケットの一生](packet-life.md) の「② VPN ラベル」にまとめた
 
 ## やりたいこと
 
@@ -50,9 +51,7 @@ graph LR
     - CE2：`show ip bgp 10.1.1.0`（PE2 から受けた経路）
 - [ ] PE2 の VRF のルーティングテーブル（`show route vrf CUST-A`）で、10.1.1.0/24 のネクストホップと AD 値を見る。`nexthop in vrf default` の意味を考える
 - [ ] PE2 で、そのネクストホップへの経路をグローバルのテーブル（`show route <ネクストホップ>`）で見る。実際にパケットを渡す相手は誰か
-- [ ] PE2 で `show cef vrf CUST-A 10.1.1.1` を見て、付けるラベルが何枚で、それぞれ何か
-- [ ] パケットの宛先 IP アドレスが途中で変わるか、CML のパケットキャプチャで確かめる（PE2-P 間、P-PE1 間）
-- [ ] P で `show mpls forwarding` を見て、P はラベルをどう扱っているか
+- [ ] 付けるラベル（`show cef vrf`）、パケットの宛先 IP が途中で変わるか（パケットキャプチャ）、P のラベルの扱い（`show mpls forwarding`）は、[MPLS VPN を通るパケットの一生](packet-life.md) の「④ パケットの流れ」でまとめて確かめる
 
 ## 仮説
 
