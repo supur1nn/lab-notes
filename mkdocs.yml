@@ -116,6 +116,7 @@ nav:
   - トラブルシューティング:
       - troubleshooting/index.md
       - pingが届かないとき: troubleshooting/ping-unreachable.md
+      - OSPFのHelloの間隔が合わないとき: troubleshooting/ospf-hello-interval.md
   - 参考記事:
       - articles/index.md
       - 参考書一覧: articles/books.md
