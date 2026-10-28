@@ -1,10 +1,10 @@
 # MPLS L3VPN で、BGP のネクストホップはどうなるのか
 
 !!! info "検証前（やりたいこと）"
-    問いと構成案まで。仮説はこれから書く。進め方は [検証の進め方](workflow.md) を参照。
+    問いと構成案まで。仮説はこれから書く。進め方は [検証の進め方](../workflow.md) を参照。
 
 - 開始日：2026-10-27
-- 関連：[RT があるのに、なぜ RD が必要なのか](l3vpn-why-rd.md)、[CE から受けた経路が PE の VRF に入るまで](l3vpn-ce-route-to-vrf.md)
+- 関連：[RT があるのに、なぜ RD が必要なのか](why-rd.md)、[CE から受けた経路が PE の VRF に入るまで](ce-route-to-vrf.md)
 
 ## 問い
 
@@ -35,7 +35,7 @@ graph LR
 | PE1 - PE2 | iBGP（VPNv4）、ループバック同士 |
 
 !!! note "台数とメモリ"
-    PE1・P・PE2 を XRv 9000（20GB × 3 = 60GB）、CE 2台を軽い IOL-XE にすれば、CML 専用機（128GB）に収まる。[RD の検証](l3vpn-why-rd.md) と同じラボで進められる。
+    PE1・P・PE2 を XRv 9000（20GB × 3 = 60GB）、CE 2台を軽い IOL-XE にすれば、CML 専用機（128GB）に収まる。[RD の検証](why-rd.md) と同じラボで進められる。
 
 ## メモ
 

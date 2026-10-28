@@ -52,7 +52,7 @@ XR を6台以上動かせる CML の専用機を用意する。
 Cisco Learning Network の CCIE SP v5.1 の試験範囲（Exam Topics）をチェックリストにして、1項目ずつ CML で確かめる。確かめたことは、このサイトの[検証](../verification/index.md)ページに「仮説 → 設定 → 確認 → 結果 → 考察」で残す。
 
 - [ ] 試験範囲（Exam Topics）を書き出してチェックリストにする
-- [ ] 途中の検証を終わらせる：[OSPF で広報される経路](../verification/ospf/advertised-routes.md)、[CE から受けた経路が PE の VRF に入るまで](../verification/l3vpn-ce-route-to-vrf.md)
+- [ ] 途中の検証を終わらせる：[OSPF で広報される経路](../verification/ospf/advertised-routes.md)、[CE から受けた経路が PE の VRF に入るまで](../verification/l3vpn/ce-route-to-vrf.md)
 
 分野ごとの検証（どれも IPv4 と IPv6 の両方で確かめる）：
 

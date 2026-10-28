@@ -1,12 +1,12 @@
 # MPLS VPN を通るパケットの一生（経路とラベルの広報）
 
 !!! info "検証前（やりたいこと）"
-    問いと構成案まで。仮説はこれから書く。進め方は [検証の進め方](workflow.md) を参照。
+    問いと構成案まで。仮説はこれから書く。進め方は [検証の進め方](../workflow.md) を参照。
 
 - 開始日：2026-10-28
-- きっかけ：参考書『[MPLS Fundamentals](../articles/books.md)』第7章 図7-17「Life of an IPv4 Packet Across the MPLS VPN Backbone: Route and Label Advertisement」を、自分の環境で組んで確かめたい
-- 調べてわかったこと：[勉強記録 2026-10-28](../study-log/2026-10-28.md)
-- 関連：[MPLS L3VPN で、BGP のネクストホップはどうなるのか](l3vpn-bgp-nexthop.md)、[RT があるのに、なぜ RD が必要なのか](l3vpn-why-rd.md)
+- きっかけ：参考書『[MPLS Fundamentals](../../articles/books.md)』第7章 図7-17「Life of an IPv4 Packet Across the MPLS VPN Backbone: Route and Label Advertisement」を、自分の環境で組んで確かめたい
+- 調べてわかったこと：[勉強記録 2026-10-28](../../study-log/2026-10-28.md)
+- 関連：[MPLS L3VPN で、BGP のネクストホップはどうなるのか](bgp-nexthop.md)、[RT があるのに、なぜ RD が必要なのか](why-rd.md)
 
 ## 問い
 

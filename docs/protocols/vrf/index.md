@@ -63,7 +63,7 @@ graph LR
 
 | ページ | 内容 |
 |------|------|
-| [検証：CE から受けた経路が PE の VRF に入るまで](../../verification/l3vpn-ce-route-to-vrf.md) | L3VPN で、PE の VRF・VPNv4 テーブルに経路が入る順番（検証前） |
-| [検証：RT があるのに、なぜ RD が必要なのか](../../verification/l3vpn-why-rd.md) | L3VPN で、RT があるのに RD を設定する意味（検証前） |
+| [検証：CE から受けた経路が PE の VRF に入るまで](../../verification/l3vpn/ce-route-to-vrf.md) | L3VPN で、PE の VRF・VPNv4 テーブルに経路が入る順番（検証前） |
+| [検証：RT があるのに、なぜ RD が必要なのか](../../verification/l3vpn/why-rd.md) | L3VPN で、RT があるのに RD を設定する意味（検証前） |
 | [勉強記録 2026-10-18](../../study-log/2026-10-18.md) | RD・RT・VPN ラベル、VRF と VPNv4 の関係 |
 | [勉強記録 2026-10-27](../../study-log/2026-10-27.md) | RT があるのに、なぜ RD が必要なのか |
