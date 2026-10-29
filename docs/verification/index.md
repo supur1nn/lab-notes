@@ -8,6 +8,7 @@
 |------|------|------|
 | [OSPF](ospf/index.md) | 広報される経路、ループバック、max-metric など | 4件 |
 | [MPLS L3VPN](l3vpn/index.md) | VRF に経路が入るまで、RD と RT、BGP のネクストホップ、ラベルとパケットの流れ | 4件 |
+| [プラットフォーム](platform/index.md) | CML のノード（XRd など）でできること・できないこと | 1件 |
 
 ## OSPF
 
@@ -26,3 +27,9 @@
 | [RT があるのに、なぜ RD が必要なのか](l3vpn/why-rd.md) | 検証前 |
 | [BGP のネクストホップはどうなるのか](l3vpn/bgp-nexthop.md) | 検証前 |
 | [MPLS VPN を通るパケットの一生](l3vpn/packet-life.md) | 検証前 |
+
+## プラットフォーム
+
+| 検証 | 状態 |
+|------|------|
+| [XRd は P ルータとして動くか](platform/xrd-as-p-router.md) | 検証前 |

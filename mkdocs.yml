@@ -113,6 +113,9 @@ nav:
           - RTがあるのになぜRDが必要か: verification/l3vpn/why-rd.md
           - BGPのネクストホップ: verification/l3vpn/bgp-nexthop.md
           - MPLS VPNを通るパケットの一生: verification/l3vpn/packet-life.md
+      - プラットフォーム:
+          - verification/platform/index.md
+          - XRdはPルータとして動くか: verification/platform/xrd-as-p-router.md
   - トラブルシューティング:
       - troubleshooting/index.md
       - pingが届かないとき: troubleshooting/ping-unreachable.md
