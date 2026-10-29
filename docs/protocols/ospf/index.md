@@ -25,3 +25,4 @@ OSPF に関するまとめです。
 | [トラブルシューティング：OSPF のネイバーが EXSTART / EXCHANGE で止まるとき](../../troubleshooting/ospf-mtu-mismatch.md) | MTU の不一致（演習 第3問） |
 | [トラブルシューティング：壊れている場所が2つあったとき](../../troubleshooting/ospf-multiple-faults-1.md) | OSPF の対象外の IF と PC のゲートウェイ（演習 第4問） |
 | [トラブルシューティング：ネイバーは FULL なのに経路が載らないとき](../../troubleshooting/ospf-network-type-mismatch.md) | ネットワークタイプの不一致（演習 第5問） |
+| [トラブルシューティング：OSPF の切り分けの手順](../../troubleshooting/ospf-troubleshooting-flow.md) | 演習のまとめ。どの順番で何を見るか |

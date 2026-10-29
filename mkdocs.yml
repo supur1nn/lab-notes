@@ -118,6 +118,7 @@ nav:
           - XRdはPルータとして動くか: verification/platform/xrd-as-p-router.md
   - トラブルシューティング:
       - troubleshooting/index.md
+      - OSPFの切り分けの手順: troubleshooting/ospf-troubleshooting-flow.md
       - pingが届かないとき: troubleshooting/ping-unreachable.md
       - OSPFのHelloの間隔が合わないとき: troubleshooting/ospf-hello-interval.md
       - ルータ間のIFがpassiveのとき: troubleshooting/ospf-passive.md
