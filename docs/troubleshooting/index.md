@@ -13,3 +13,4 @@
 | [ネイバーは FULL なのに経路が載らないとき](ospf-network-type-mismatch.md) | ネットワークタイプの不一致（P2P と BROADCAST）。FULL でも安心できない（演習 第5問） | 2026-10-28 |
 | [Desktop を Wipe したあと、ping が通らなくなったとき](stale-arp-after-wipe.md) | Wipe で MAC アドレスが変わり、ルータに古い ARP が残っていた。L2 も疑う | 2026-10-29 |
 | [エリアの不一致と、ICMP を落とす ACL](ospf-area-and-acl.md) | ネイバーが張れない原因（エリア）と、経路があるのに通らない原因（ACL）が同時に起きていた（演習 第6問） | 2026-10-29 |
+| [OSPF の認証の不一致と、PC の IF の down](ospf-auth-and-pc-link.md) | 認証が合わずネイバーが張れない。CML では PC の IF を down にしてもルータ側は Up のまま（演習 第7問） | 2026-10-29 |

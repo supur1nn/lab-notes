@@ -126,6 +126,7 @@ nav:
       - 壊れている場所が2つあったとき: troubleshooting/ospf-multiple-faults-1.md
       - FULLなのに経路が載らないとき: troubleshooting/ospf-network-type-mismatch.md
       - エリアの不一致とACL: troubleshooting/ospf-area-and-acl.md
+      - 認証の不一致とPCのIFのdown: troubleshooting/ospf-auth-and-pc-link.md
       - Wipe後に古いARPが残っていたとき: troubleshooting/stale-arp-after-wipe.md
   - 参考記事:
       - articles/index.md

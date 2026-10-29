@@ -27,3 +27,4 @@ OSPF に関するまとめです。
 | [トラブルシューティング：ネイバーは FULL なのに経路が載らないとき](../../troubleshooting/ospf-network-type-mismatch.md) | ネットワークタイプの不一致（演習 第5問） |
 | [トラブルシューティング：OSPF の切り分けの手順](../../troubleshooting/ospf-troubleshooting-flow.md) | 演習のまとめ。どの順番で何を見るか |
 | [トラブルシューティング：エリアの不一致と、ICMP を落とす ACL](../../troubleshooting/ospf-area-and-acl.md) | 演習 第6問 |
+| [トラブルシューティング：OSPF の認証の不一致と、PC の IF の down](../../troubleshooting/ospf-auth-and-pc-link.md) | 演習 第7問 |

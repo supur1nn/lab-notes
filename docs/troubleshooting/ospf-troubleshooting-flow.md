@@ -31,12 +31,13 @@ graph TD
 
 | どこで | コマンド | 何を見るか |
 | --- | --- | --- |
+| PC | `ip link show eth1` | IF が `UP`・`LOWER_UP` か |
 | PC | `ip addr show eth1` | IP アドレスとマスクが構成表どおりか。ルータと重なっていないか |
 | PC | `ip route` | `default via` が正しいゲートウェイか |
 | PC | `ping <ゲートウェイ>` | 自分のゲートウェイまで届くか |
 
 - **両方の PC** で確かめる（ping は帰りもあるので、相手側の PC がおかしくても通らない）
-- 演習の例：[第4問](ospf-multiple-faults-1.md)（desktop-1 のゲートウェイが間違い）
+- 演習の例：[第4問](ospf-multiple-faults-1.md)（desktop-1 のゲートウェイが間違い）、[第7問](ospf-auth-and-pc-link.md)（desktop-0 の IF が down。CML ではルータ側は Up のまま見える）
 
 ## ② ルータ：宛先の経路はあるか（行きと帰り）
 
@@ -71,7 +72,7 @@ show ospf neighbor
 | その IF で OSPF が有効か | `show ospf interface brief` | — |
 | passive になっていないか | `show ospf interface <IF>` の `No Hellos (Passive interface)` | [第2問](ospf-passive.md) |
 | Hello・Dead の間隔が相手と同じか | `show ospf interface <IF>` の `Timer intervals` | [第1問](ospf-hello-interval.md) |
-| エリア番号、認証、サブネットマスクが相手と同じか | `show ospf interface brief`（Area の列）、`show run router ospf` | [第6問](ospf-area-and-acl.md)（エリア） |
+| エリア番号、認証、サブネットマスクが相手と同じか | `show ospf interface brief`（Area の列）、`show run router ospf` | [第6問](ospf-area-and-acl.md)（エリア）、[第7問](ospf-auth-and-pc-link.md)（認証） |
 | Hello で何が合わないか | `debug ospf adj`（使ったら `undebug all`） | — |
 
 **両方のルータで同じ項目を並べて、見比べる。**
