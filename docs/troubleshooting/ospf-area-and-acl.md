@@ -103,6 +103,14 @@ commit
 end
 ```
 
+### 実際にやった直し方
+
+- ①：R2 の G0/0/0/0 を area 0 に戻した（area 1 も消えていた）。ネイバーは FULL に戻った
+- ②：ACL の **10 行目（`deny icmp any any`）だけを消した**。ACL 本体（`20 permit ipv4 any any`）と、IF への `ipv4 access-group` は残っていた
+
+!!! note "②は通るようになったが、元の状態とは違う"
+    ACL の中身が「全部許可」だけになったので、ping は通る。ただ、正常な状態（初期状態）にはそもそも ACL がなかった。**使っていない ACL が IF に残っている**と、あとで誰かが行を足したときに、思わぬ通信が止まる原因になる。元に戻すなら、`no ipv4 access-group` で IF から外し、`no ipv4 access-list` で ACL ごと消す。
+
 ## 確認に使えるコマンド
 
 | コマンド | 何を見るか |
