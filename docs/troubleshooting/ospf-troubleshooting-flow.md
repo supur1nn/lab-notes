@@ -71,7 +71,7 @@ show ospf neighbor
 | その IF で OSPF が有効か | `show ospf interface brief` | — |
 | passive になっていないか | `show ospf interface <IF>` の `No Hellos (Passive interface)` | [第2問](ospf-passive.md) |
 | Hello・Dead の間隔が相手と同じか | `show ospf interface <IF>` の `Timer intervals` | [第1問](ospf-hello-interval.md) |
-| エリア番号、認証、サブネットマスクが相手と同じか | `show ospf interface <IF>`、`show run router ospf` | — |
+| エリア番号、認証、サブネットマスクが相手と同じか | `show ospf interface brief`（Area の列）、`show run router ospf` | [第6問](ospf-area-and-acl.md)（エリア） |
 | Hello で何が合わないか | `debug ospf adj`（使ったら `undebug all`） | — |
 
 **両方のルータで同じ項目を並べて、見比べる。**
@@ -100,7 +100,7 @@ show ospf neighbor
 | --- | --- | --- |
 | ルータの ARP が正しい MAC を指しているか | ルータ：`show arp <IF>`、PC：`ip link show eth1` | [Wipe したあとの古い ARP](stale-arp-after-wipe.md) |
 | 帰り道が別のところで切れていないか | 相手側から同じように ② を確かめる | — |
-| ACL などで落とされていないか | `show run interface <IF>` に `access-group` がないか | — |
+| ACL などで落とされていないか | `show run interface <IF>` に `access-group` がないか、`show access-lists ipv4` の `matches` | [第6問](ospf-area-and-acl.md)（ACL） |
 
 ## 直すときの基本
 
