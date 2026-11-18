@@ -115,6 +115,9 @@ nav:
           - RTがあるのになぜRDが必要か: verification/l3vpn/why-rd.md
           - BGPのネクストホップ: verification/l3vpn/bgp-nexthop.md
           - MPLS VPNを通るパケットの一生: verification/l3vpn/packet-life.md
+      - IP・L2:
+          - verification/ip-l2/index.md
+          - IPアドレスが重複するとどうなるか: verification/ip-l2/duplicate-ip.md
       - プラットフォーム:
           - verification/platform/index.md
           - XRdはPルータとして動くか: verification/platform/xrd-as-p-router.md

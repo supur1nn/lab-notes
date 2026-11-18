@@ -8,6 +8,7 @@
 |------|------|------|
 | [OSPF](ospf/index.md) | 広報される経路、ループバック、max-metric など | 4件 |
 | [MPLS L3VPN](l3vpn/index.md) | VRF に経路が入るまで、RD と RT、BGP のネクストホップ、ラベルとパケットの流れ | 4件 |
+| [IP・L2](ip-l2/index.md) | IP アドレスの重複など、ルーティングより下の層 | 1件 |
 | [プラットフォーム](platform/index.md) | CML のノード（XRd など）でできること・できないこと | 1件 |
 
 ## OSPF
@@ -33,3 +34,9 @@
 | 検証 | 状態 |
 |------|------|
 | [XRd は P ルータとして動くか](platform/xrd-as-p-router.md) | 検証前 |
+
+## IP・L2
+
+| 検証 | 状態 |
+|------|------|
+| [IP アドレスが重複するとどうなるか](ip-l2/duplicate-ip.md) | 検証前 |
