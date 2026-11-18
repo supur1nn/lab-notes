@@ -85,6 +85,7 @@ nav:
       - 2026-10-17 CML導入とshow ip route: study-log/2026-10-17.md
   - プロトコル:
       - protocols/index.md
+      - OSPFとBGPの広報の違い: protocols/advertise-ospf-vs-bgp.md
       - OSPF:
           - protocols/ospf/index.md
       - BGP:

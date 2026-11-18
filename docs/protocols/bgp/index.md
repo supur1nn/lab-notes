@@ -135,3 +135,4 @@ router bgp 65000
 | [検証：CE から受けた経路が PE の VRF に入るまで](../../verification/l3vpn/ce-route-to-vrf.md) | L3VPN で、PE の VRF・VPNv4 テーブルに経路が入る順番（検証前） |
 | [検証：MPLS L3VPN で、BGP のネクストホップはどうなるのか](../../verification/l3vpn/bgp-nexthop.md) | 区間ごとの BGP のネクストホップ、PE の再帰とラベル（検証前） |
 | [勉強記録 2026-11-19](../../study-log/2026-11-19.md) | IOS XR の eBGP（address-family の初期化、remote-as、route-policy がないと経路を交換しない）、network コマンド |
+| [OSPF と BGP の広報の違い](../advertise-ospf-vs-bgp.md) | OSPF は IF を指定、BGP は network で経路を指定 |

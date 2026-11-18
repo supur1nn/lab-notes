@@ -4,7 +4,7 @@
 
 | 日付 | 内容 |
 |------|------|
-| [2026-11-19](2026-11-19.md) | XRd 6台のラボ（リンクは起動前に張る）、IOS XR の eBGP（address-family、remote-as、route-policy）、OSPF と BGP の広報の違い |
+| [2026-11-19](2026-11-19.md) | XRd 6台のラボ（リンクは起動前に張る）、IOS XR の eBGP（address-family、remote-as、route-policy）、OSPF と BGP の広報の違い、ルータ ID、OSPF と LDP・SR・TE の関係 |
 | [2026-10-28](2026-10-28.md) | MPLS VPN でパケットが運ばれるしくみ（MP-iBGP・IGP・LDP ラベル・VPN ラベルの役割） |
 | [2026-10-27](2026-10-27.md) | RT があるのに、なぜ RD が必要なのか（BGP はプレフィックスで経路を見分ける） |
 | [2026-10-26](2026-10-26.md) | IOS XR の max-metric（起動時に OSPF のコストを最大にする理由）、ループバックの広報には OSPF での指定が必要 |

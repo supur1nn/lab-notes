@@ -4,6 +4,7 @@
 
 | プロトコル | 内容 |
 |------|------|
+| [OSPF と BGP の広報の違い](advertise-ospf-vs-bgp.md) | OSPF は IF を指定、BGP は経路を指定。比べてわかること |
 | [OSPF](ospf/index.md) | RFC、OSPF の有効化、広報される経路 |
 | [BGP](bgp/index.md) | AS と ASN、RFC、ケイパビリティの確認、ベストパス選択アルゴリズム、マルチパス、iBGP / ルートリフレクタ / ポリシー制御 |
 | [MPLS](mpls/index.md) | LDP / RSVP-TE / L3VPN |
