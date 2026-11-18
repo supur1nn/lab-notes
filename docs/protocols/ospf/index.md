@@ -28,3 +28,4 @@ OSPF に関するまとめです。
 | [トラブルシューティング：OSPF の切り分けの手順](../../troubleshooting/ospf-troubleshooting-flow.md) | 演習のまとめ。どの順番で何を見るか |
 | [トラブルシューティング：エリアの不一致と、ICMP を落とす ACL](../../troubleshooting/ospf-area-and-acl.md) | 演習 第6問 |
 | [トラブルシューティング：OSPF の認証の不一致と、PC の IF の down](../../troubleshooting/ospf-auth-and-pc-link.md) | 演習 第7問 |
+| [勉強記録 2026-11-19](../../study-log/2026-11-19.md) | OSPF の「IF のネットワークを広報する」とは（BGP の network との違い） |
