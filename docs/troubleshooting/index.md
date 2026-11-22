@@ -14,3 +14,4 @@
 | [Desktop を Wipe したあと、ping が通らなくなったとき](stale-arp-after-wipe.md) | Wipe で MAC アドレスが変わり、ルータに古い ARP が残っていた。L2 も疑う | 2026-10-29 |
 | [エリアの不一致と、ICMP を落とす ACL](ospf-area-and-acl.md) | ネイバーが張れない原因（エリア）と、経路があるのに通らない原因（ACL）が同時に起きていた（演習 第6問） | 2026-10-29 |
 | [OSPF の認証の不一致と、PC の IF の down](ospf-auth-and-pc-link.md) | 認証が合わずネイバーが張れない。CML では PC の IF を down にしてもルータ側は Up のまま（演習 第7問） | 2026-10-29 |
+| [リンクは上がっているのに通信できないとき](link-up-wrong-nic.md) | ポートは connected なのに CML に届かない。Z8 の使っていない LAN ポートに挿していて、DHCP の固定割当の IP がもらえていなかった。MAC アドレスで切り分ける | [2026-11-22](../study-log/2026-11-22.md) |
